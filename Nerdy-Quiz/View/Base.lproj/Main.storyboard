@@ -1,24 +1,306 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14269.14" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14252.5"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Quiz View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="QuizViewController" customModule="Nerdy_Quiz" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="k0A-wn-NtC">
+                                <rect key="frame" x="0.0" y="96" width="375" height="470"/>
+                                <color key="backgroundColor" red="0.8483646373" green="0.8483646373" blue="0.8483646373" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="QuizViewCell" rowHeight="163" id="5Jv-Hs-PFq" customClass="QuizViewCell" customModule="Nerdy_Quiz" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="163"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5Jv-Hs-PFq" id="fNa-qk-QPY">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="162.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PqE-KV-laL" customClass="ContainerView" customModule="Nerdy_Quiz" customModuleProvider="target">
+                                                    <rect key="frame" x="6" y="8" width="363" height="146.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Who is the Nerdiest of all" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NoE-hP-Qho">
+                                                            <rect key="frame" x="8" y="18.5" width="347" height="30"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="30" id="slg-Mv-eG3"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="UsR-b4-Iq6">
+                                                            <rect key="frame" x="8" y="56.5" width="347" height="82"/>
+                                                            <subviews>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="pZu-6T-lJ5">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="167.5" height="82"/>
+                                                                    <subviews>
+                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3ye-84-Olg" customClass="NerdyButton" customModule="Nerdy_Quiz" customModuleProvider="target">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="167.5" height="30"/>
+                                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                            <state key="normal" title="Answer 1">
+                                                                                <color key="titleColor" red="0.0" green="0.74332091970000003" blue="0.13224843159999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                            </state>
+                                                                            <connections>
+                                                                                <action selector="didPressOption1:" destination="5Jv-Hs-PFq" eventType="touchUpInside" id="CCW-Jw-Ur8"/>
+                                                                            </connections>
+                                                                        </button>
+                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iD7-FF-lrJ" customClass="NerdyButton" customModule="Nerdy_Quiz" customModuleProvider="target">
+                                                                            <rect key="frame" x="0.0" y="52" width="167.5" height="30"/>
+                                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                            <state key="normal" title="Answer 2">
+                                                                                <color key="titleColor" red="0.64836193389999996" green="0.0" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                            </state>
+                                                                            <connections>
+                                                                                <action selector="didPressOption2:" destination="5Jv-Hs-PFq" eventType="touchUpInside" id="9sE-QA-srO"/>
+                                                                            </connections>
+                                                                        </button>
+                                                                    </subviews>
+                                                                </stackView>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="9Su-lw-Hn5">
+                                                                    <rect key="frame" x="179.5" y="0.0" width="167.5" height="82"/>
+                                                                    <subviews>
+                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x2J-RU-Zcd" customClass="NerdyButton" customModule="Nerdy_Quiz" customModuleProvider="target">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="167.5" height="33"/>
+                                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                            <state key="normal" title="Answer 3">
+                                                                                <color key="titleColor" red="0.054901960780000002" green="0.6705882353" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                                            </state>
+                                                                            <connections>
+                                                                                <action selector="didPressOption3:" destination="5Jv-Hs-PFq" eventType="touchUpInside" id="Tuy-6d-eWc"/>
+                                                                            </connections>
+                                                                        </button>
+                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rcm-0i-pOO" customClass="NerdyButton" customModule="Nerdy_Quiz" customModuleProvider="target">
+                                                                            <rect key="frame" x="0.0" y="49" width="167.5" height="33"/>
+                                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                            <state key="normal" title="Answer 4">
+                                                                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                            </state>
+                                                                            <connections>
+                                                                                <action selector="didPressOption4:" destination="5Jv-Hs-PFq" eventType="touchUpInside" id="nPR-fb-I0M"/>
+                                                                            </connections>
+                                                                        </button>
+                                                                    </subviews>
+                                                                </stackView>
+                                                            </subviews>
+                                                        </stackView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstItem="UsR-b4-Iq6" firstAttribute="leading" secondItem="PqE-KV-laL" secondAttribute="leading" constant="8" id="1i3-cU-eVO"/>
+                                                        <constraint firstAttribute="bottom" secondItem="UsR-b4-Iq6" secondAttribute="bottom" constant="8" id="Crf-bk-Cee"/>
+                                                        <constraint firstAttribute="trailing" secondItem="UsR-b4-Iq6" secondAttribute="trailing" constant="8" id="MhC-or-kt7"/>
+                                                        <constraint firstItem="NoE-hP-Qho" firstAttribute="leading" secondItem="PqE-KV-laL" secondAttribute="leading" constant="8" id="Muh-aO-xgh"/>
+                                                        <constraint firstAttribute="trailing" secondItem="NoE-hP-Qho" secondAttribute="trailing" constant="8" id="fGH-Bz-dAo"/>
+                                                        <constraint firstItem="UsR-b4-Iq6" firstAttribute="top" secondItem="NoE-hP-Qho" secondAttribute="bottom" constant="8" id="oli-N4-c1e"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="PqE-KV-laL" firstAttribute="leading" secondItem="fNa-qk-QPY" secondAttribute="leading" constant="6" id="J3y-Wk-2bt"/>
+                                                <constraint firstItem="PqE-KV-laL" firstAttribute="top" secondItem="fNa-qk-QPY" secondAttribute="top" constant="8" id="nEf-WA-g5U"/>
+                                                <constraint firstAttribute="bottom" secondItem="PqE-KV-laL" secondAttribute="bottom" constant="8" id="stb-Vy-XgT"/>
+                                                <constraint firstAttribute="trailing" secondItem="PqE-KV-laL" secondAttribute="trailing" constant="6" id="z8m-dX-rfI"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.8483646373" green="0.8483646373" blue="0.8483646373" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <outlet property="option1" destination="3ye-84-Olg" id="yDI-JJ-dR4"/>
+                                            <outlet property="option2" destination="iD7-FF-lrJ" id="U75-V2-VgJ"/>
+                                            <outlet property="option3" destination="x2J-RU-Zcd" id="xgl-SK-MO9"/>
+                                            <outlet property="option4" destination="rcm-0i-pOO" id="UTe-iJ-EUx"/>
+                                            <outlet property="questionlabel" destination="NoE-hP-Qho" id="Umw-Ju-kA7"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hPP-ce-qeH">
+                                <rect key="frame" x="25" y="582" width="325" height="45"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="E2o-j2-HkF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <state key="normal" title="CHECK MY SCORE">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="checkMyScorePressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="D2E-1h-0Ng"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j0i-ll-TKe">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NERDY QUIZ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gIJ-wF-Mq1">
+                                        <rect key="frame" x="0.0" y="38" width="375" height="42"/>
+                                        <color key="backgroundColor" red="0.054901960780000002" green="0.6705882353" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="42" id="l92-Qs-7x1"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="20"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.054901960780000002" green="0.6705882353" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="gIJ-wF-Mq1" firstAttribute="leading" secondItem="j0i-ll-TKe" secondAttribute="leading" id="Eq1-8B-qS4"/>
+                                    <constraint firstAttribute="trailing" secondItem="gIJ-wF-Mq1" secondAttribute="trailing" id="fDd-O8-N2u"/>
+                                    <constraint firstAttribute="height" constant="80" id="iUD-5O-Kfh"/>
+                                    <constraint firstAttribute="bottom" secondItem="gIJ-wF-Mq1" secondAttribute="bottom" id="wcF-9E-jnr"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="j0i-ll-TKe" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Qcn-bK-ONM"/>
+                            <constraint firstItem="k0A-wn-NtC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="R5s-ol-thx"/>
+                            <constraint firstItem="k0A-wn-NtC" firstAttribute="top" secondItem="j0i-ll-TKe" secondAttribute="bottom" constant="16" id="Rsd-HO-bet"/>
+                            <constraint firstItem="j0i-ll-TKe" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="UqF-vI-nzW"/>
+                            <constraint firstItem="hPP-ce-qeH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="25" id="Vsp-4M-0rU"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="k0A-wn-NtC" secondAttribute="trailing" id="aNw-RL-6iG"/>
+                            <constraint firstItem="j0i-ll-TKe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="gmY-Nm-I6Z"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="hPP-ce-qeH" secondAttribute="bottom" constant="40" id="gns-kS-Buc"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hPP-ce-qeH" secondAttribute="trailing" constant="25" id="jFn-FW-Gfh"/>
+                            <constraint firstItem="hPP-ce-qeH" firstAttribute="top" secondItem="k0A-wn-NtC" secondAttribute="bottom" constant="16" id="ubA-4E-QGR"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="scoreButton" destination="hPP-ce-qeH" id="kQX-37-0LH"/>
+                        <outlet property="tableView" destination="k0A-wn-NtC" id="HYp-rj-syL"/>
+                        <segue destination="Woz-2I-3qS" kind="show" identifier="checkMyScorePressed" id="YfW-iS-Mf5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="138" y="53"/>
+        </scene>
+        <!--Score View Controller-->
+        <scene sceneID="18b-9H-o88">
+            <objects>
+                <viewController id="Woz-2I-3qS" customClass="ScoreViewController" customModule="Nerdy_Quiz" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nTq-Nu-FiC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2NO-I7-MJc">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NERDY QUIZ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LEN-XD-roK">
+                                        <rect key="frame" x="0.0" y="38" width="375" height="42"/>
+                                        <color key="backgroundColor" red="0.054901960780000002" green="0.6705882353" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="42" id="ddQ-8o-tLu"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="20"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.054901960780000002" green="0.6705882353" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="CKY-fU-NHH"/>
+                                    <constraint firstAttribute="bottom" secondItem="LEN-XD-roK" secondAttribute="bottom" id="Mmp-Xp-2QV"/>
+                                    <constraint firstAttribute="trailing" secondItem="LEN-XD-roK" secondAttribute="trailing" id="fud-Y3-z3Q"/>
+                                    <constraint firstItem="LEN-XD-roK" firstAttribute="leading" secondItem="ctE-q5-2N3" secondAttribute="leading" id="yKS-VX-h2U"/>
+                                </constraints>
+                                <viewLayoutGuide key="safeArea" id="ctE-q5-2N3"/>
+                            </view>
+                            <view tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tFo-dH-E2w">
+                                <rect key="frame" x="37.5" y="183.5" width="300" height="300"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7/10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Me5-Dd-fYi">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="72"/>
+                                        <color key="textColor" red="0.054901960780000002" green="0.6705882353" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="highlightedColor" red="0.054901960780000002" green="0.6705882353" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="Me5-Dd-fYi" firstAttribute="top" secondItem="tFo-dH-E2w" secondAttribute="top" id="H3S-b5-JXu"/>
+                                    <constraint firstAttribute="width" constant="300" id="j5p-0n-dbS"/>
+                                    <constraint firstAttribute="height" constant="300" id="kk8-Tx-cFb"/>
+                                    <constraint firstAttribute="bottom" secondItem="Me5-Dd-fYi" secondAttribute="bottom" id="ngY-Fn-GlS"/>
+                                    <constraint firstItem="Me5-Dd-fYi" firstAttribute="leading" secondItem="tFo-dH-E2w" secondAttribute="leading" id="ugH-MR-ZhX"/>
+                                    <constraint firstAttribute="trailing" secondItem="Me5-Dd-fYi" secondAttribute="trailing" id="xe7-Dw-XdZ"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="150"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YOUR SCORE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2VE-eN-dyB">
+                                <rect key="frame" x="38" y="110" width="299" height="39"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="39" id="JXQ-q6-pIR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                <color key="textColor" red="0.054901960780000002" green="0.6705882353" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eEC-cD-UVH">
+                                <rect key="frame" x="87.5" y="567" width="200" height="40"/>
+                                <color key="backgroundColor" red="0.054901960780000002" green="0.6705882353" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="NGf-iw-nFi"/>
+                                    <constraint firstAttribute="width" constant="200" id="rff-U5-KaA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                <state key="normal" title="TRY AGAIN">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="tryAgain:" destination="Woz-2I-3qS" eventType="touchUpInside" id="m6r-Q7-MJp"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="2NO-I7-MJc" firstAttribute="trailing" secondItem="6Hq-p5-g3a" secondAttribute="trailing" id="4vB-Sw-Ite"/>
+                            <constraint firstItem="2VE-eN-dyB" firstAttribute="top" secondItem="2NO-I7-MJc" secondAttribute="bottom" constant="30" id="6uH-Yp-RRN"/>
+                            <constraint firstItem="2VE-eN-dyB" firstAttribute="leading" secondItem="6Hq-p5-g3a" secondAttribute="leading" constant="38" id="HY9-SY-fni"/>
+                            <constraint firstItem="eEC-cD-UVH" firstAttribute="centerX" secondItem="nTq-Nu-FiC" secondAttribute="centerX" id="ISc-Qf-VLt"/>
+                            <constraint firstItem="2NO-I7-MJc" firstAttribute="top" secondItem="nTq-Nu-FiC" secondAttribute="top" id="T6P-5g-B3X"/>
+                            <constraint firstItem="6Hq-p5-g3a" firstAttribute="bottom" secondItem="eEC-cD-UVH" secondAttribute="bottom" constant="60" id="Wbz-FH-sto"/>
+                            <constraint firstItem="tFo-dH-E2w" firstAttribute="centerX" secondItem="nTq-Nu-FiC" secondAttribute="centerX" id="Xi6-mP-4SJ"/>
+                            <constraint firstItem="tFo-dH-E2w" firstAttribute="centerY" secondItem="nTq-Nu-FiC" secondAttribute="centerY" id="fNp-Ck-rc1"/>
+                            <constraint firstItem="2NO-I7-MJc" firstAttribute="leading" secondItem="6Hq-p5-g3a" secondAttribute="leading" id="i4F-YQ-2Vc"/>
+                            <constraint firstItem="6Hq-p5-g3a" firstAttribute="trailing" secondItem="2VE-eN-dyB" secondAttribute="trailing" constant="38" id="ldW-2S-IuH"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Hq-p5-g3a"/>
+                    </view>
+                    <connections>
+                        <outlet property="scorelabel" destination="Me5-Dd-fYi" id="ZOj-UD-bmH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lAZ-dQ-5Gg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="854" y="53"/>
         </scene>
     </scenes>
 </document>

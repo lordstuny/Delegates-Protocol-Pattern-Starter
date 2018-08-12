@@ -8,20 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		C4CA43B4211E1EE8008A4A1D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CA43B3211E1EE8008A4A1D /* AppDelegate.swift */; };
-		C4CA43B6211E1EE8008A4A1D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CA43B5211E1EE8008A4A1D /* ViewController.swift */; };
+		C4CA43B6211E1EE8008A4A1D /* QuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CA43B5211E1EE8008A4A1D /* QuizViewController.swift */; };
 		C4CA43B9211E1EE9008A4A1D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4CA43B7211E1EE9008A4A1D /* Main.storyboard */; };
 		C4CA43BB211E1F0A008A4A1D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4CA43BA211E1F0A008A4A1D /* Assets.xcassets */; };
 		C4CA43BE211E1F0A008A4A1D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4CA43BC211E1F0A008A4A1D /* LaunchScreen.storyboard */; };
+		C4CA43C9211E1FE4008A4A1D /* QuizCell+OtherViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CA43C8211E1FE4008A4A1D /* QuizCell+OtherViews.swift */; };
+		C4CA43CB211E2022008A4A1D /* NerdyQuestions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CA43CA211E2022008A4A1D /* NerdyQuestions.swift */; };
+		C4CA43CD211E241B008A4A1D /* ScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CA43CC211E241B008A4A1D /* ScoreViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C4CA43B0211E1EE8008A4A1D /* Nerdy-Quiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Nerdy-Quiz.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4CA43B3211E1EE8008A4A1D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C4CA43B5211E1EE8008A4A1D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C4CA43B5211E1EE8008A4A1D /* QuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewController.swift; sourceTree = "<group>"; };
 		C4CA43B8211E1EE9008A4A1D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C4CA43BA211E1F0A008A4A1D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C4CA43BD211E1F0A008A4A1D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C4CA43BF211E1F0A008A4A1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C4CA43C8211E1FE4008A4A1D /* QuizCell+OtherViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "QuizCell+OtherViews.swift"; sourceTree = "<group>"; };
+		C4CA43CA211E2022008A4A1D /* NerdyQuestions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NerdyQuestions.swift; sourceTree = "<group>"; };
+		C4CA43CC211E241B008A4A1D /* ScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +60,41 @@
 		C4CA43B2211E1EE8008A4A1D /* Nerdy-Quiz */ = {
 			isa = PBXGroup;
 			children = (
-				C4CA43B3211E1EE8008A4A1D /* AppDelegate.swift */,
-				C4CA43B5211E1EE8008A4A1D /* ViewController.swift */,
-				C4CA43B7211E1EE9008A4A1D /* Main.storyboard */,
+				C4CA43C5211E1F43008A4A1D /* Model */,
+				C4CA43C6211E1F50008A4A1D /* View */,
+				C4CA43C7211E1F5D008A4A1D /* Controller */,
 				C4CA43BA211E1F0A008A4A1D /* Assets.xcassets */,
 				C4CA43BC211E1F0A008A4A1D /* LaunchScreen.storyboard */,
 				C4CA43BF211E1F0A008A4A1D /* Info.plist */,
 			);
 			path = "Nerdy-Quiz";
+			sourceTree = "<group>";
+		};
+		C4CA43C5211E1F43008A4A1D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C4CA43CA211E2022008A4A1D /* NerdyQuestions.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C4CA43C6211E1F50008A4A1D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C4CA43B7211E1EE9008A4A1D /* Main.storyboard */,
+				C4CA43C8211E1FE4008A4A1D /* QuizCell+OtherViews.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C4CA43C7211E1F5D008A4A1D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C4CA43B5211E1EE8008A4A1D /* QuizViewController.swift */,
+				C4CA43B3211E1EE8008A4A1D /* AppDelegate.swift */,
+				C4CA43CC211E241B008A4A1D /* ScoreViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,7 +168,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C4CA43B6211E1EE8008A4A1D /* ViewController.swift in Sources */,
+				C4CA43CB211E2022008A4A1D /* NerdyQuestions.swift in Sources */,
+				C4CA43C9211E1FE4008A4A1D /* QuizCell+OtherViews.swift in Sources */,
+				C4CA43CD211E241B008A4A1D /* ScoreViewController.swift in Sources */,
+				C4CA43B6211E1EE8008A4A1D /* QuizViewController.swift in Sources */,
 				C4CA43B4211E1EE8008A4A1D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

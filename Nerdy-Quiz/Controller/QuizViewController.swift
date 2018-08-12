@@ -8,12 +8,10 @@
 
 import UIKit
 
-protocol NerdyQuizDelegate:class {
-    func didFinishSelectingOption(with id:String, and option:String)
-    func selectedOption(for id:String) -> String?
-}
+class QuizViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,
+NerdyQuizDelegate {
 
-class QuizViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,NerdyQuizDelegate {
+    
     
     
     @IBOutlet weak var tableView:UITableView!
@@ -37,12 +35,15 @@ class QuizViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         tableView.reloadData()
     }
     
+/*Helper function to transform questions dictionary into an array of NerdyQuestion Objects
+*/
     func getNerdyQuestions(){
         allnerdyQuestions = []
         
         for (key,value) in allquestions {
             if let value = value as? [String:String]{
-                let ques = NerdyQuestion(id: key, question: value[QS]!, op1: value[OP1]!, op2: value[OP2]!, op3: value[OP3]!, op4: value[OP4]!)
+                let ques = NerdyQuestion(id: key, question: value[QS]!,
+                    op1: value[OP1]!, op2: value[OP2]!, op3: value[OP3]!, op4: value[OP4]!)
                 allnerdyQuestions.append(ques)
             }
         }
@@ -50,7 +51,6 @@ class QuizViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     }
     
     @IBAction func checkMyScorePressed(_ sender:UIButton){
-        
         performSegue(withIdentifier:"checkMyScorePressed", sender: allCorrectNerdyAnswers);
     }
     
@@ -75,20 +75,20 @@ class QuizViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         return allnerdyQuestions.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: String.init(describing: QuizViewCell.self), for: indexPath) as? QuizViewCell{
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath)
+        -> UITableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier:
+            String.init(describing: QuizViewCell.self), for: indexPath) as? QuizViewCell{
             let nerdyquestion = allnerdyQuestions[indexPath.row]
             
             cell.delegate = self
-            cell.configureView(nerdquestion: nerdyquestion)
             
+            cell.configureView(nerdquestion: nerdyquestion)
             
             return cell
         }
         return QuizViewCell()
     }
-    
-    
     
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -99,7 +99,6 @@ class QuizViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     
     func didFinishSelectingOption(with id: String, and option: String) {
         allCorrectNerdyAnswers[id] = option
-        
         if allCorrectNerdyAnswers.count == allnerdyQuestions.count{
             scoreButton.isEnabled = true
             scoreButton.layer.backgroundColor = UIColor(red: 14/255, green: 171/255, blue: 1, alpha: 1).cgColor
