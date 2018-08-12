@@ -8,8 +8,8 @@
 
 import UIKit
 
-class QuizViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,
-NerdyQuizDelegate {
+class QuizViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
+ {
 
     
     
@@ -75,13 +75,10 @@ NerdyQuizDelegate {
         return allnerdyQuestions.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath)
-        -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath)-> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier:
             String.init(describing: QuizViewCell.self), for: indexPath) as? QuizViewCell{
             let nerdyquestion = allnerdyQuestions[indexPath.row]
-            
-            cell.delegate = self
             
             cell.configureView(nerdquestion: nerdyquestion)
             
@@ -93,21 +90,6 @@ NerdyQuizDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 163
-    }
-    
-    //MARK:- NERDYQUIZ DELEGATES
-    
-    func didFinishSelectingOption(with id: String, and option: String) {
-        allCorrectNerdyAnswers[id] = option
-        if allCorrectNerdyAnswers.count == allnerdyQuestions.count{
-            scoreButton.isEnabled = true
-            scoreButton.layer.backgroundColor = UIColor(red: 14/255, green: 171/255, blue: 1, alpha: 1).cgColor
-        }
-    }
-    
-    func selectedOption(for id: String) -> String? {
-        let selected = allCorrectNerdyAnswers[id]
-        return selected
     }
     
     

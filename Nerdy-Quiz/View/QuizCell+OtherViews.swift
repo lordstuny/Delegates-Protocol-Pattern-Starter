@@ -7,10 +7,6 @@
 //
 import UIKit
 
-protocol NerdyQuizDelegate:class {
-    func didFinishSelectingOption(with id:String, and option:String)
-    func selectedOption(for id:String) -> String?
-}
 
 class QuizViewCell:UITableViewCell{
     
@@ -19,8 +15,7 @@ class QuizViewCell:UITableViewCell{
     @IBOutlet weak var option2:NerdyButton!
     @IBOutlet weak var option3:NerdyButton!
     @IBOutlet weak var option4:NerdyButton!
-    weak var delegate:NerdyQuizDelegate?
-    var question:NerdyQuestion!
+
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -52,14 +47,9 @@ class QuizViewCell:UITableViewCell{
         option2.setTitle(nerdquestion.option2, for: .normal)
         option3.setTitle(nerdquestion.option3, for: .normal)
         option4.setTitle(nerdquestion.option4, for: .normal)
-        question = nerdquestion
         
-        let selected = delegate?.selectedOption(for: nerdquestion.id)
-        var index = nerdquestion.contains(an: selected)
-        if index != nil {
-            index! += 1
-            setSelectedOption(index: index!)
-        }
+        
+        
     }
     
     func setSelectedOption(index:Int){
@@ -86,7 +76,7 @@ class QuizViewCell:UITableViewCell{
     @IBAction func didPressOption1(_ sender:NerdyButton){
         sender.setAttrsOnPressed(index: 1)
         clearOnSelect(index: 1)
-        delegate?.didFinishSelectingOption(with: question.id, and: sender.currentTitle!)
+       
         
     }
     
@@ -95,7 +85,7 @@ class QuizViewCell:UITableViewCell{
     @IBAction func didPressOption2(_ sender:NerdyButton){
         sender.setAttrsOnPressed(index: 2)
         clearOnSelect(index: 2)
-        delegate?.didFinishSelectingOption(with: question.id, and: sender.currentTitle!)
+        
         
     }
     //Button 3 matched to Option 3 Actions of button that is invoked when a button is pressed or receives the Touch Up Inside event
@@ -103,7 +93,7 @@ class QuizViewCell:UITableViewCell{
     @IBAction func didPressOption3(_ sender:NerdyButton){
         sender.setAttrsOnPressed(index: 3)
         clearOnSelect(index: 3)
-        delegate?.didFinishSelectingOption(with: question.id, and: sender.currentTitle!)
+        
     }
     //Button 4 matched to Option 4 Actions of button that is invoked when a button is pressed or receives the Touch Up Inside event
     
@@ -111,7 +101,7 @@ class QuizViewCell:UITableViewCell{
     @IBAction func didPressOption4(_ sender:NerdyButton){
         sender.setAttrsOnPressed(index: 4)
         clearOnSelect(index: 4)
-       delegate?.didFinishSelectingOption(with: question.id, and: sender.currentTitle!)
+       
         
     }
     

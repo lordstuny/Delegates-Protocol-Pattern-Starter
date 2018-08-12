@@ -49,16 +49,6 @@ struct NerdyQuestion {
         _option4 = op4
     }
     
-    func contains(an option:String?)->Int?{
-        if option == nil{ return nil }
-        let arr = [_option1,_option2,_option3,_option4]
-        for opt in arr{
-            if opt == option!{
-                return arr.firstIndex(of: opt)
-            }
-        }
-        return nil
-    }
     
 }
 
